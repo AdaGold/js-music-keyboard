@@ -1,0 +1,53 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: black;   
+}
+
+.instrument {
+  height: 10rem;
+  width: 60rem;
+  margin: 5rem auto;
+}
+
+.note {
+  cursor: pointer;
+  font-size: 3rem;
+  width: 8rem;
+  height: 8rem;
+  margin: 0;
+  padding: 0;
+  border: 3px solid currentColor;
+}
+
+.note:focus { outline: none; }
+
+.c { background-color: #3e181b; color: #db1d2d; }
+.c:hover { background-color: #661920; }
+.c:active, .c.active { background-color: #db1d2d; }
+
+.d { color: #f0421c; background-color: #422018; }
+.d:hover { background-color: #6e2819; }
+.d:active, .d.active { background-color: #f0421c; }
+
+.e { color: #fec02d; background-color: #45391b; }
+.e:hover { background-color: #735b20; }
+.e:active, .e.active { background-color: #fec02d; }
+
+.f { color: #20d071; background-color: #193c29; }
+.f:hover { background-color: #1b613b; }
+.f:active, .f.active { background-color: #20d071; }
+
+.g { color: #1a9ddb; background-color: #18323e; }
+.g:hover { background-color: #184d65; }
+.g:active, .g.active { background-color: #1a9ddb; }
+
+.a { color: #a13fad; background-color: #331f35; }
+.a:hover { background-color: #4e2753; }
+.a:active, .a.active { background-color: #a13fad; }
+
+.b { color: #f26fd4; background-color: #43293d; }
+.b:hover { background-color: #6f3a62; }
+.b:active, .b.active { background-color: #f26fd4; }
