@@ -3,8 +3,9 @@ html {
 }
 
 body {
-  background-color: black;   
+  background-color: black;
 }
+
 
 .instrument {
   height: 10rem;
@@ -51,3 +52,8 @@ body {
 .b { color: #f26fd4; background-color: #43293d; }
 .b:hover { background-color: #6f3a62; }
 .b:active, .b.active { background-color: #f26fd4; }
+
+
+/*.song { color: #f0421c; background-color: #422018; }
+.song:hover { background-color: #6e2819; }
+.song:active, .d.active { background-color: #f0421c; }*/
