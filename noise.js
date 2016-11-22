@@ -26,16 +26,16 @@ $(document).ready( function() {
       //Play the clicked note
       document.getElementById($(this).html() + "Audio").play();
 
+      // Display the most recently played note
       $( ".notesPlayed" ).html( $(this).html() );
-      $(".notesPlayed" ).removeClass("run-animation").addClass("run-animation");
-      // // $(".notesPlayed").click(function() {
-      //   var el = $(this);
-      //   newone = el.clone(true);
-      //   el.before(newone);
-      //   $("." + el.attr("class") + ":last").remove();
-      // // });
-
+      ////// THis is a poorly understood Googled trick (that i had to play around with/modify) to reload a css animation for with jquery: https://css-tricks.com/restart-css-animation/
+        var el = $( ".notesPlayed" ).html( $(this).html() );
+        newone = el.clone(true);
+        el.before(newone);
+        $(".notesPlayed" + ":last").remove();
+      //////////////////////////////////////////////////////////////////
     }
+    // if you click on a song...
     else if ($(this).html() == '🌟') {
       notesInSong = Array.from(twinkleTwinkle);
       playSong(); //I was passing notesInSong, but it's a global variable so I dont have to
@@ -78,9 +78,19 @@ $(document).ready( function() {
       stopPlayback(event.key);
       //Play the note of the pressed key
       document.getElementById(event.key + "Audio").play();
+
+      // Display the most recently played note
+      $( ".notesPlayed" ).html( event.key); //so that it doesn't pring the x's
+      ////// THis is a barely understood Googled trick (that i had to play around with/modify) to reload a css animation for with jquery: https://css-tricks.com/restart-css-animation/
+      var el = $( ".notesPlayed" ).html( event.key );
+      newone = el.clone(true);
+      el.before(newone);
+      $(".notesPlayed" + ":last").remove();
+      //////////////////////////////////////////////////////////////////
     }
    });
 
+   // Add in song buttons
    $('.instrument').append('<button class="note song">🌟</button>');
    $('.instrument').append('<button class="note song">🐏</button>');
    $('.instrument').append('<button class="note song">💤</button>');
@@ -89,7 +99,7 @@ $(document).ready( function() {
    $('.instrument').append('<button class="note song">🐖</button>');
    $('.instrument').append('<button class="note song">🌦</button>');
    $('.instrument').append('<button class="note song">🇫🇷</button>');
-    $('body').append('<div class="notesPlayed">- Refresh page to stop songs -</button>');
+    $('body').append('<div class="notesPlayed"> </button>');
 });
 
 var playSong = function(notesInSong) {
@@ -98,8 +108,18 @@ var playSong = function(notesInSong) {
 
 var playNote = function(intervalID) {
   console.log(notesInSong[0]);
-  if (notesInSong[0] != 'x') {var currentNote = notesInSong[0];} //so that it doesn't pring the x's
-  $( ".notesPlayed" ).html( currentNote );
+
+  // Display the most recently played note
+  if (notesInSong[0] != 'x') {
+    $( ".notesPlayed" ).html( notesInSong[0]); //so that it doesn't pring the x's
+    ////// THis is a barely understood Googled trick (that i had to play around with/modify) to reload a css animation for with jquery: https://css-tricks.com/restart-css-animation/
+    var el = $( ".notesPlayed" ).html( notesInSong[0] );
+    newone = el.clone(true);
+    el.before(newone);
+    $(".notesPlayed" + ":last").remove();
+  //////////////////////////////////////////////////////////////////
+  }
+
   if (notes.includes(notesInSong[0])) {
     stopPlayback(notesInSong[0]);
     var played = document.getElementById(notesInSong[0] + "Audio").play();
