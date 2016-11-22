@@ -6,7 +6,7 @@
 
 var notes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
-var songs = ['twinkleTwinkle', 'littleLamb']
+var songs = ['twinkleTwinkle', 'littleLamb'];
 var twinkleTwinkle = 'ccggaagxffeeddcxggffeedxggffeedxccggaagxffeeddcx'; //The 'x' essentially makes the note before it a half note instead of a quarter note
 var littleLamb = 'edcdeeexdddxeggxedcdeeeeddedcx';
 var lullaby = 'eegxxeegxxegbxbxaaxgxdefxdxdefxdxdfbagxbxcxxbxbxafgxecfxgfexdxcx';
@@ -14,7 +14,8 @@ var yankeeDoodle = 'ccdecedcccdecxcxccdefedcbgabbxbx';
 var rowBoat = 'dxdxdefxfefgaxxbbaaggffagfedx';
 var oldMac = 'eeecddcxeeddcxgeeecddcxeeddcx';
 var sunshine = 'ccdexexedecxcxcdefxaxagfexcdefxaxagfexcxcdexfdxdecx';
-var frere = 'cdeccdecefgxefgxgagfexcxgagfexcxcxgxcxcxgxcx';
+var frere = 'cdeccdecefgxefgxgagfexcxgagfexcxcxgxcxxcxgxcx';
+var spider = 'gcccdexeedcdecxxexexfgxgxfefgexxcxcxdexexdcdecxggxcccdexeedcdec';
 var notesInSong = '';
 
 
@@ -48,10 +49,10 @@ $(document).ready( function() {
       notesInSong = Array.from(lullaby);
       playSong();
     }
-    else if ($(this).html() == '🇺🇸') {
-      notesInSong = Array.from(yankeeDoodle);
-      playSong();
-    }
+    // else if ($(this).html() == '🇺🇸') {
+    //   notesInSong = Array.from(yankeeDoodle);
+    //   playSong();
+    // }
     // else if ($(this).html() == '🚣') {
     //   notesInSong = Array.from(rowBoat);
     //   playSong();
@@ -66,6 +67,10 @@ $(document).ready( function() {
     }
     else if ($(this).html() == '🇫🇷') {
       notesInSong = Array.from(frere);
+      playSong();
+    }
+    else if ($(this).html() == '🕷') {
+      notesInSong = Array.from(spider);
       playSong();
     }
     // console.log($(this));
@@ -94,16 +99,17 @@ $(document).ready( function() {
    $('.instrument').append('<button class="note song">🌟</button>');
    $('.instrument').append('<button class="note song">🐏</button>');
    $('.instrument').append('<button class="note song">💤</button>');
-   $('.instrument').append('<button class="note song">🇺🇸</button>');
+  //  $('.instrument').append('<button class="note song">🇺🇸</button>');
   //  $('.instrument').append('<button class="note song">🚣</button>');
    $('.instrument').append('<button class="note song">🐖</button>');
    $('.instrument').append('<button class="note song">🌦</button>');
    $('.instrument').append('<button class="note song">🇫🇷</button>');
+   $('.instrument').append('<button class="note song">🕷</button>');
     $('body').append('<div class="notesPlayed"> </button>');
 });
 
 var playSong = function(notesInSong) {
-  var intervalID = setInterval(function() { playNote(intervalID); }, 500);
+  var intervalID = setInterval(function() { playNote(intervalID); }, 400);
 };
 
 var playNote = function(intervalID) {
